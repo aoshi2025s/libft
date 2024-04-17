@@ -6,8 +6,15 @@
 /*   By: yoaoki <yoaoki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 20:00:52 by yoaoki            #+#    #+#             */
-/*   Updated: 2024/04/17 20:00:59 by yoaoki           ###   ########.fr       */
+/*   Updated: 2024/04/17 21:50:14 by yoaoki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+int	ft_isascii(int c)
+{
+	if (c >= 0 && c <= 127)
+		return (1);
+	return (0);
+}

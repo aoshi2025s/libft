@@ -6,8 +6,18 @@
 /*   By: yoaoki <yoaoki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 20:01:32 by yoaoki            #+#    #+#             */
-/*   Updated: 2024/04/17 20:01:39 by yoaoki           ###   ########.fr       */
+/*   Updated: 2024/04/17 22:04:53 by yoaoki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+size_t	ft_strlen(const char *str)
+{
+	size_t	len;
+
+	len = 0;
+	while (str[len])
+		len++;
+	return (len);
+}
