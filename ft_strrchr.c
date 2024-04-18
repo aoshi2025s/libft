@@ -32,7 +32,7 @@ char	*ft_strrchr(const char *str, int c)
 	while (len)
 	{
 		if (*curr == target)
-		   return (curr);
+			return (curr);
 		curr--;
 		len--;
 	}

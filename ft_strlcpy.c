@@ -6,7 +6,7 @@
 /*   By: yoaoki <yoaoki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 20:02:45 by yoaoki            #+#    #+#             */
-/*   Updated: 2024/04/18 16:03:40 by yoaoki           ###   ########.fr       */
+/*   Updated: 2024/04/18 21:24:18 by yoaoki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,5 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 		i++;
 	}
 	*dst = '\0';
-	/*
-	while (i < dstsize)
-	{
-		*dst++ = '\0';
-		i++;
-	}
-	*/
 	return (len);
 }

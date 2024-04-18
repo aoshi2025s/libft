@@ -16,8 +16,8 @@ char	*ft_strchr(const char *str, int c)
 {
 	char	*curr;
 	char	target;
+
 	target = (char)c;
-	
 	curr = (char *)str;
 	while (*curr)
 	{
