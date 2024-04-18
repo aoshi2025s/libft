@@ -6,7 +6,7 @@
 /*   By: yoaoki <yoaoki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 20:05:15 by yoaoki            #+#    #+#             */
-/*   Updated: 2024/04/18 18:15:44 by yoaoki           ###   ########.fr       */
+/*   Updated: 2024/04/18 22:34:53 by yoaoki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,4 +14,5 @@
 
 char	*strnstr(const char *haystack, const char *needle, size_t len)
 {
+
 }
