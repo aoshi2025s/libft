@@ -6,7 +6,7 @@
 /*   By: yoaoki <yoaoki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 19:31:02 by yoaoki            #+#    #+#             */
-/*   Updated: 2024/04/18 16:44:10 by yoaoki           ###   ########.fr       */
+/*   Updated: 2024/04/21 03:41:38 by yoaoki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include <unistd.h>
 #include <stdlib.h>
+#include <limits.h>
 
 int	ft_isalpha(int c);
 int	ft_isdigit(int c);
