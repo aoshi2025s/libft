@@ -6,7 +6,7 @@
 /*   By: yoaoki <yoaoki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 19:31:02 by yoaoki            #+#    #+#             */
-/*   Updated: 2024/04/21 03:41:38 by yoaoki           ###   ########.fr       */
+/*   Updated: 2024/04/23 22:53:24 by yoaoki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,12 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <limits.h>
+
+typedef struct	s_list
+{
+	void			*content;
+	struct s_list	*next;
+}	t_list;
 
 int	ft_isalpha(int c);
 int	ft_isdigit(int c);
