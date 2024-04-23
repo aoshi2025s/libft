@@ -6,22 +6,17 @@
 /*   By: yoaoki <yoaoki@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 02:09:28 by yoaoki            #+#    #+#             */
-/*   Updated: 2024/04/23 03:27:56 by yoaoki           ###   ########.fr       */
+/*   Updated: 2024/04/23 18:27:30 by yoaoki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-
-
-#include <stdlib.h>
-#include <stdio.h>
-
 size_t	term_counter(char const *s, char c)
 {
 	size_t	count;
-	int		in_term;	
-	
+	int		in_term;
+
 	count = 0;
 	in_term = 0;
 	while (*s)
@@ -62,23 +57,15 @@ void	split_free(char **result, int count)
 	free(result);
 }
 
-char	**ft_split(char const *s, char c)
+char	**ft_split_dup(char **result, char const *s, char c, size_t size)
 {
-	char	**result;
-	int		i;
-	int		j;
-	size_t	term_count;
-	
-	if (!s)
-		return ((char **)malloc(sizeof(char *)));	
-	term_count = term_counter(s, c);	
-	result = (char **)malloc(sizeof(char *) * (term_count + 1));
-	if (!result)
-		return (0);
-		i = 0;
-	while (i < term_count)
+	int	i;
+	int	j;
+
+	i = 0;
+	while (i < size)
 	{
-		while (*s == c)
+		while (*s == c && *s)
 			s++;
 		result[i] = (char *)malloc(sizeof(char) * (splitstr_len(s, c) + 1));
 		if (!result[i])
@@ -90,28 +77,48 @@ char	**ft_split(char const *s, char c)
 		while (*s != c && *s)
 			result[i][j++] = *s++;
 		result[i][j] = '\0';
+		s += splitstr_len(s, c);
 		i++;
 	}
 	result[i] = 0;
 	return (result);
 }
 
+char	**ft_split(char const *s, char c)
+{
+	char	**result;
+	size_t	size;
+
+	if (!s)
+		return (0);
+	size = term_counter(s, c);
+	result = (char **)malloc(sizeof(char *) * (size + 1));
+	if (!result)
+		return (0);
+	result = ft_split_dup(result, s, c, size);
+	return (result);
+}
+
 /*
 #include <stdio.h>
 #include <unistd.h>
+
 int	main(int argc, char **argv)
 {
+	char	*str;
+	char	c;
+	size_t	len;
+	char	**result;
+
 	if (argc != 3)
 	{
 		printf ("please input argument\n");
 		return (0);
 	}
-	char *str = argv[1];
-	char c = argv[2][0];
-	size_t len = term_counter(str, c);
+	str = argv[1];
+	c = argv[2][0];
+	len = term_counter(str, c);
 	printf ("term count : %zu\n", len);
-	char **result;
-	
 	result = ft_split(str, c);
 	for (int i = 0; i < len; i++)
 	{
