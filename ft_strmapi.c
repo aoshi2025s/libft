@@ -6,7 +6,7 @@
 /*   By: yoaoki <yoaoki@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 18:37:50 by yoaoki            #+#    #+#             */
-/*   Updated: 2024/04/23 18:46:39 by yoaoki           ###   ########.fr       */
+/*   Updated: 2024/04/23 19:03:01 by yoaoki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,9 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
 	char			*result;
 	unsigned int	i;
-
+	
+	if (!s)
+		return (0);
 	result = ft_strdup(s);
 	if (!result)
 		return (0);

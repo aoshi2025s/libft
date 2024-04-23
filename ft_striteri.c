@@ -1,24 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yoaoki <yoaoki@student.42.fr>              +#+  +:+       +#+        */
+/*   By: yoaoki <yoaoki@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/17 20:06:24 by yoaoki            #+#    #+#             */
-/*   Updated: 2024/04/23 19:03:09 by yoaoki           ###   ########.fr       */
+/*   Created: 2024/04/23 18:54:28 by yoaoki            #+#    #+#             */
+/*   Updated: 2024/04/23 18:59:47 by yoaoki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(const char *s1)
+void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
-	char	*result;
-	
-	result = (char *)malloc(ft_strlen(s1) + 1);
-	if (!result)
-		return (NULL);
-	ft_strlcpy(result, s1, ft_strlen(s1)+1);
-	return (result);
+	unsigned int	i;
+
+	if (!s)
+		return ;
+	i = 0;
+	while (s[i])
+	{
+		(*f)(i, &s[i]);
+		i++;
+	}
 }
