@@ -12,6 +12,7 @@ SRCS = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c \
 OBJS = $(SRCS:.c=.o)
 
 BONUS = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c\
+		ft_lstadd_back.c
 
 
 BONUS_OBJS = $(BONUS:.c=.o)
