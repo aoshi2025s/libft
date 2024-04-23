@@ -6,7 +6,7 @@
 /*   By: yoaoki <yoaoki@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 17:24:21 by yoaoki            #+#    #+#             */
-/*   Updated: 2024/04/22 17:34:06 by yoaoki           ###   ########.fr       */
+/*   Updated: 2024/04/23 18:48:33 by yoaoki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	size_t	total_len;
 	char	*result;
 
+	if (!s1 || !s2)
+		return (0);
 	total_len = ft_strlen(s1) + ft_strlen(s2) + 1;
 	result = (char *)malloc(total_len);
 	if (!result)
