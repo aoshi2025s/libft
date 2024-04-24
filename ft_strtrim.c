@@ -6,7 +6,7 @@
 /*   By: yoaoki <yoaoki@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 22:03:58 by yoaoki            #+#    #+#             */
-/*   Updated: 2024/04/22 22:57:25 by yoaoki           ###   ########.fr       */
+/*   Updated: 2024/04/24 17:12:55 by yoaoki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,9 @@ char	*ft_strtrim(char const *s1, char const *set)
 	size_t	end;
 
 	if (!s1 || !set)
-		return ((char *)malloc(1));
+		return (0);
+	if (!ft_strlen(s1))
+		return (ft_strdup(""));
 	start = 0;
 	end = ft_strlen(s1) - 1;
 	while (s1[start] && ft_strchr(set, s1[start]))
@@ -32,3 +34,14 @@ char	*ft_strtrim(char const *s1, char const *set)
 	ft_strlcpy(result, &s1[start], end - start + 2);
 	return (result);
 }
+/*
+#include <stdio.h>
+int	main()
+{
+	char const *s1 = "";
+	char const *set = "a";
+	char *result = ft_strtrim(s1,set);
+	printf ("result : %s\n", result);
+	return (0);
+}
+*/
