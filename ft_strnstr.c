@@ -6,7 +6,7 @@
 /*   By: yoaoki <yoaoki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 20:05:15 by yoaoki            #+#    #+#             */
-/*   Updated: 2024/04/24 18:53:24 by yoaoki           ###   ########.fr       */
+/*   Updated: 2024/04/24 23:23:17 by yoaoki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 	if (!(*needle))
 		return ((char *)haystack);
 	count = 0;
-	while (*haystack && len)
+	while (*haystack && count < len)
 	{
 		if (ft_strncmp(haystack, needle, ft_strlen(needle)) == 0)
 		{
@@ -32,7 +32,6 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 		}
 		haystack++;
 		count++;
-		len--;
 	}
 	return (0);
 }
