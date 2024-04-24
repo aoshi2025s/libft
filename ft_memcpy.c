@@ -6,7 +6,7 @@
 /*   By: yoaoki <yoaoki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 22:51:13 by yoaoki            #+#    #+#             */
-/*   Updated: 2024/04/24 19:09:29 by yoaoki           ###   ########.fr       */
+/*   Updated: 2024/04/25 05:59:56 by yoaoki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,14 @@
 
 void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	unsigned char	*result_dst;
-	unsigned char	*result_src;
+	unsigned char	*uc_dst;
+	unsigned char	*uc_src;
 
 	if (!dst && !src)
 		return (0);
-	result_dst = (unsigned char *)dst;
-	result_src = (unsigned char *)src;
-	while (n > 0)
-	{
-		*result_dst++ = *result_src++;
-		n--;
-	}
+	uc_dst = (unsigned char *)dst;
+	uc_src = (unsigned char *)src;
+	while (n--)
+		*uc_dst++ = *uc_src++;
 	return (dst);
 }
