@@ -6,7 +6,7 @@
 /*   By: yoaoki <yoaoki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 20:05:27 by yoaoki            #+#    #+#             */
-/*   Updated: 2024/04/21 03:50:03 by yoaoki           ###   ########.fr       */
+/*   Updated: 2024/04/24 14:43:18 by yoaoki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,31 @@ int	ft_isspace(char c)
 		|| c == ' ');
 }
 
+int	ft_atoi(const char *str)
+{
+	long long	result;
+	int			minus;
+
+	result = 0;
+	minus = 1;
+	while (ft_isspace(*str))
+		str++;
+	if (*str == '-')
+	{
+		minus = -1;
+		str++;
+	}
+	else if (*str == '+')
+		str++;
+	while (ft_isdigit(*str))
+	{
+		result = result * 10 + *str - '0';
+		str++;
+	}
+	return (result * minus);
+}
+
+/*
 unsigned long long	calcu_atoi(unsigned long long result, const char *str)
 {
 	while (ft_isdigit(*str))
@@ -53,28 +78,16 @@ int	ft_atoi(const char *str)
 		return (-1);
 	return ((int)result * minus);
 }
-/*
-int	ft_atoi(const char *str)
-{
-	int	result;
-	int	minus;
 
-	result = 0;
-	minus = 1;
-	while (ft_isspace(*str))
-		str++;
-	if (*str == '-')
-	{
-		minus = -1;
-		str++;
-	}
-	else if (*str == '+')
-		str++;
-	while (*str && ft_isdigit(*str))
-	{
-		result = result * 10 + (*str - '0');
-		str++;
-	}
-	return (result * minus);
+#include <stdio.h>
+int	main(void)
+{
+	//9223372036854775808
+	//18446744073709551616
+	int result = ft_atoi("18446744073709551616");
+	int	expected = atoi("18446744073709551616");
+	printf ("result: %d\n", result);
+	printf ("expected: %d\n", expected);
+	return (0);
 }
 */
