@@ -6,7 +6,7 @@
 /*   By: yoaoki <yoaoki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 19:31:02 by yoaoki            #+#    #+#             */
-/*   Updated: 2024/04/23 22:59:59 by yoaoki           ###   ########.fr       */
+/*   Updated: 2024/04/24 21:46:16 by yoaoki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <limits.h>
+#include <stdint.h>
 
 typedef struct	s_list
 {
