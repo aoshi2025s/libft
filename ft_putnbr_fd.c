@@ -6,7 +6,7 @@
 /*   By: yoaoki <yoaoki@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 19:19:32 by yoaoki            #+#    #+#             */
-/*   Updated: 2024/04/23 19:44:32 by yoaoki           ###   ########.fr       */
+/*   Updated: 2024/04/25 05:37:39 by yoaoki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,18 +30,3 @@ void	ft_putnbr_fd(int n, int fd)
 		ft_putchar_fd(num % 10 + '0', fd);
 	}
 }
-/*
-#include <stdio.h>
-#include <stdlib.h>
-
-int	main(int argc, char **argv)
-{
-	if (argc != 2)
-	{
-		printf ("please input argument\n");
-		return (0);
-	}
-	ft_putnbr_fd(atoi(argv[1]), 1);
-	return (0);
-}
-*/

@@ -6,7 +6,7 @@
 /*   By: yoaoki <yoaoki@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 01:08:58 by yoaoki            #+#    #+#             */
-/*   Updated: 2024/04/24 14:03:56 by yoaoki           ###   ########.fr       */
+/*   Updated: 2024/04/25 05:36:44 by yoaoki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,3 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 	free(*lst);
 	*lst = NULL;
 }
-/*
-void	ft_lstdelone(t_list *lst, void (*del)(void *))
-{
-	if (!del || !lst)
-		return ;
-	(*del)(lst->content);
-	free(lst);
-}
-*/

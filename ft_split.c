@@ -6,7 +6,7 @@
 /*   By: yoaoki <yoaoki@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 02:09:28 by yoaoki            #+#    #+#             */
-/*   Updated: 2024/04/24 19:45:56 by yoaoki           ###   ########.fr       */
+/*   Updated: 2024/04/25 05:39:49 by yoaoki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,7 @@ size_t	term_counter(char const *s, char c)
 			in_term = 1;
 		}
 		else if (in_term && *s == c)
-		{
 			in_term = 0;
-		}
 		s++;
 	}
 	return (count);
@@ -47,8 +45,6 @@ size_t	splitstr_len(char const *s, char c)
 
 void	split_free(char **result, int count)
 {
-	int	i;
-
 	while (count > 0)
 	{
 		free(result[count - 1]);
