@@ -6,7 +6,7 @@
 /*   By: yoaoki <yoaoki@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 01:01:08 by yoaoki            #+#    #+#             */
-/*   Updated: 2024/04/24 19:39:40 by yoaoki           ###   ########.fr       */
+/*   Updated: 2024/04/24 19:51:27 by yoaoki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 size_t	ft_numlen(long long n)
 {
 	size_t	len;
-
+	
 	if (n == 0)
 		return (1);
 	len = 0;
