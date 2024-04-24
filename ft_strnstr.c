@@ -6,37 +6,30 @@
 /*   By: yoaoki <yoaoki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 20:05:15 by yoaoki            #+#    #+#             */
-/*   Updated: 2024/04/21 02:12:14 by yoaoki           ###   ########.fr       */
+/*   Updated: 2024/04/24 17:58:28 by yoaoki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	has_str(const char *s1, const char *s2)
-{
-	int	s2_len;
-
-	s2_len = ft_strlen(s2);
-	while (s2_len)
-	{
-		if (*s1 != *s2)
-			return (0);
-		s2_len--;
-		s1++;
-		s2++;
-	}
-	return (1);
-}
-
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
+	size_t	count;
+
 	if (!(*needle))
 		return ((char *)haystack);
+	count = 0;
 	while (*haystack && len)
 	{
-		if (has_str(haystack, needle))
-			return ((char *)haystack);
+		if (ft_strncmp(haystack, needle, ft_strlen(needle)) == 0)
+		{
+			if (count + ft_strlen(needle) > len)
+				return (0);
+			else
+				return ((char *)haystack);
+		}
 		haystack++;
+		count++;
 		len--;
 	}
 	return (0);
