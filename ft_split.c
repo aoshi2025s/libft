@@ -6,7 +6,7 @@
 /*   By: yoaoki <yoaoki@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 02:09:28 by yoaoki            #+#    #+#             */
-/*   Updated: 2024/04/23 18:27:30 by yoaoki           ###   ########.fr       */
+/*   Updated: 2024/04/24 19:45:56 by yoaoki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,32 +98,3 @@ char	**ft_split(char const *s, char c)
 	result = ft_split_dup(result, s, c, size);
 	return (result);
 }
-
-/*
-#include <stdio.h>
-#include <unistd.h>
-
-int	main(int argc, char **argv)
-{
-	char	*str;
-	char	c;
-	size_t	len;
-	char	**result;
-
-	if (argc != 3)
-	{
-		printf ("please input argument\n");
-		return (0);
-	}
-	str = argv[1];
-	c = argv[2][0];
-	len = term_counter(str, c);
-	printf ("term count : %zu\n", len);
-	result = ft_split(str, c);
-	for (int i = 0; i < len; i++)
-	{
-		printf("term[%d] : %s\n", i, result[i]);
-	}
-	return (0);
-}
-*/
