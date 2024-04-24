@@ -80,12 +80,16 @@ int	ft_atoi(const char *str)
 }
 
 #include <stdio.h>
+
 int	main(void)
 {
+	int	result;
+	int	expected;
+
 	//9223372036854775808
 	//18446744073709551616
-	int result = ft_atoi("18446744073709551616");
-	int	expected = atoi("18446744073709551616");
+	result = ft_atoi("18446744073709551616");
+	expected = atoi("18446744073709551616");
 	printf ("result: %d\n", result);
 	printf ("expected: %d\n", expected);
 	return (0);

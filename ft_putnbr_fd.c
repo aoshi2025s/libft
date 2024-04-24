@@ -33,6 +33,7 @@ void	ft_putnbr_fd(int n, int fd)
 /*
 #include <stdio.h>
 #include <stdlib.h>
+
 int	main(int argc, char **argv)
 {
 	if (argc != 2)
