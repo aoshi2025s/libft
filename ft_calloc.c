@@ -6,7 +6,7 @@
 /*   By: yoaoki <yoaoki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 20:06:07 by yoaoki            #+#    #+#             */
-/*   Updated: 2024/04/24 23:01:58 by yoaoki           ###   ########.fr       */
+/*   Updated: 2024/04/25 04:50:16 by yoaoki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@ void	*ft_calloc(size_t count, size_t size)
 {
 	void	*ptr;
 
-	if (size != 0 && (count > INT_MAX / size))
+	if (size && (count > INT_MAX / size))
 		return (0);
-	if (count != 0 && (size > INT_MAX / count))
+	if (count && (size > INT_MAX / count))
 		return (0);
 	ptr = malloc(count * size);
 	if (!ptr)
