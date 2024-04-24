@@ -6,7 +6,7 @@
 /*   By: yoaoki <yoaoki@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 22:03:58 by yoaoki            #+#    #+#             */
-/*   Updated: 2024/04/24 17:12:55 by yoaoki           ###   ########.fr       */
+/*   Updated: 2024/04/24 18:00:14 by yoaoki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,14 +34,3 @@ char	*ft_strtrim(char const *s1, char const *set)
 	ft_strlcpy(result, &s1[start], end - start + 2);
 	return (result);
 }
-/*
-#include <stdio.h>
-int	main()
-{
-	char const *s1 = "";
-	char const *set = "a";
-	char *result = ft_strtrim(s1,set);
-	printf ("result : %s\n", result);
-	return (0);
-}
-*/
