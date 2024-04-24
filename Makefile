@@ -19,7 +19,7 @@ BONUS = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c\
 BONUS_OBJS = $(BONUS:.c=.o)
 
 CC = clang
-CFLAG = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror
 
 $(NAME) : $(OBJS)
 	ar rc $(NAME) $(OBJS)
