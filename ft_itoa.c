@@ -6,7 +6,7 @@
 /*   By: yoaoki <yoaoki@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 01:01:08 by yoaoki            #+#    #+#             */
-/*   Updated: 2024/04/23 01:58:08 by yoaoki           ###   ########.fr       */
+/*   Updated: 2024/04/24 19:39:40 by yoaoki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,19 +58,3 @@ char	*ft_itoa(int n)
 	}
 	return (result);
 }
-/*
-#include <stdio.h>
-#include <stdlib.h>
-
-int	main(int argc, char **argv)
-{
-	int		n;
-	char	*str;
-
-	n = atoi(argv[1]);
-	printf ("%d len : %zu\n", atoi(argv[1]), ft_numlen(atoi(argv[1])));
-	str = ft_itoa(atoi(argv[1]));
-	printf ("%d to_string : %s\n", atoi(argv[1]), str);
-	return (0);
-}
-*/
