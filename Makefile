@@ -1,4 +1,5 @@
 NAME = libft.a
+
 SRCS = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c \
 	   ft_isprint.c ft_strlen.c ft_memset.c ft_toupper.c ft_tolower.c \
 	   ft_bzero.c ft_memcpy.c ft_memmove.c ft_strlcpy.c ft_strlcat.c \
@@ -18,8 +19,8 @@ BONUS = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c\
 
 BONUS_OBJS = $(BONUS:.c=.o)
 
-CC = clang
-CFLAGS = -Wall -Wextra -Werror
+CC = cc
+CC_FLAGS = -Wall -Wextra -Werror
 
 $(NAME) : $(OBJS)
 	ar rc $(NAME) $(OBJS)
@@ -28,7 +29,7 @@ $(NAME) : $(OBJS)
 all : $(NAME)
 
 .c.o:
-	$(CC) -c $< -o $@
+	$(CC) $(CC_FLAGS) -c $< -o $@
 
 clean:
 	rm -f $(OBJS) $(BONUS_OBJS)
