@@ -23,8 +23,7 @@ CC = cc
 CC_FLAGS = -Wall -Wextra -Werror
 
 $(NAME) : $(OBJS)
-	ar rc $(NAME) $(OBJS)
-	ranlib $(NAME)
+	ar rcs $(NAME) $(OBJS)
 
 all : $(NAME)
 
