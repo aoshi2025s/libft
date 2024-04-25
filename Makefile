@@ -10,14 +10,16 @@ SRCS = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c \
 	   ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c\
 
 
-OBJS = $(SRCS:.c=.o)
-
 BONUS = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c\
 		ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c\
 		ft_lstiter.c ft_lstmap.c
 
 
-BONUS_OBJS = $(BONUS:.c=.o)
+OBJS = $(SRCS:.c=.o)
+
+ifdef WITH_BONUS
+	OBJS += $(BONUS:.c=.o)
+endif
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
@@ -27,18 +29,18 @@ $(NAME) : $(OBJS)
 
 all : $(NAME)
 
-.c.o:
-	$(CC) $(CC_FLAGS) -c $< -o $@
+.c.o: $(OBJS)
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -f $(OBJS) $(BONUS_OBJS)
+	rm -f $(OBJS) $(BONUS:.c=.o)
 
 fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
 
-bonus: $(OBJS) $(BONUS_OBJS)
-	ar rcs $(NAME) $(OBJS) $(BONUS_OBJS)
+bonus:
+	make WITH_BONUS=1
 
 .PHONY: all clean fclean re bonus
