@@ -6,7 +6,7 @@
 /*   By: yoaoki <yoaoki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 20:05:27 by yoaoki            #+#    #+#             */
-/*   Updated: 2024/04/26 14:42:10 by yoaoki           ###   ########.fr       */
+/*   Updated: 2024/04/26 14:47:48 by yoaoki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	is_underflow(long long num, int c)
 {
 	if (num < LONG_MIN / 10)
 		return (1);
-	if (num == LONG_MIN / 10 && c > -(LONG_MIN % 10))
+	if (num == LONG_MIN / 10 && c > -(LONG_MIN % 10) )
 		return (1);
 	return (0);
 }
@@ -38,7 +38,7 @@ int	is_underflow(long long num, int c)
 int	ft_atoi(const char *str)
 {
 	unsigned long long	result;
-	int					minus;
+	int			minus;
 
 	result = 0;
 	minus = 1;
@@ -52,9 +52,9 @@ int	ft_atoi(const char *str)
 	}
 	while (ft_isdigit(*str))
 	{
-		if (is_overflow(result * minus, *str - '0'))
+		if (is_overflow(result*minus, *str-'0'))
 			return ((int)LONG_MAX);
-		else if (is_underflow(result * minus, *str - '0'))
+		else if (is_underflow(result*minus, *str-'0'))
 			return ((int)LONG_MIN);
 		result = result * 10 + (*str++ - '0');
 	}
