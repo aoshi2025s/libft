@@ -6,7 +6,7 @@
 /*   By: yoaoki <yoaoki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 20:05:27 by yoaoki            #+#    #+#             */
-/*   Updated: 2024/04/25 15:37:11 by yoaoki           ###   ########.fr       */
+/*   Updated: 2024/04/26 14:42:10 by yoaoki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,28 @@ int	ft_isspace(char c)
 	return (c == ' ' || (c >= 9 && c <= 13));
 }
 
+int	is_overflow(long long num, int c)
+{
+	if (num > LONG_MAX / 10)
+		return (1);
+	if (num == LONG_MAX / 10 && c > LONG_MAX % 10)
+		return (1);
+	return (0);
+}
+
+int	is_underflow(long long num, int c)
+{
+	if (num < LONG_MIN / 10)
+		return (1);
+	if (num == LONG_MIN / 10 && c > -(LONG_MIN % 10))
+		return (1);
+	return (0);
+}
+
 int	ft_atoi(const char *str)
 {
-	long long	result;
-	int			minus;
+	unsigned long long	result;
+	int					minus;
 
 	result = 0;
 	minus = 1;
@@ -33,6 +51,12 @@ int	ft_atoi(const char *str)
 		str++;
 	}
 	while (ft_isdigit(*str))
-		result = result * 10 + *str++ - '0';
+	{
+		if (is_overflow(result * minus, *str - '0'))
+			return ((int)LONG_MAX);
+		else if (is_underflow(result * minus, *str - '0'))
+			return ((int)LONG_MIN);
+		result = result * 10 + (*str++ - '0');
+	}
 	return (result * minus);
 }
