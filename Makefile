@@ -41,6 +41,6 @@ fclean: clean
 re: fclean all
 
 bonus:
-	make WITH_BONUS=1
+	@make WITH_BONUS=1
 
 .PHONY: all clean fclean re bonus
