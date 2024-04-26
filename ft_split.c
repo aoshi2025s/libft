@@ -6,7 +6,7 @@
 /*   By: yoaoki <yoaoki@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 02:09:28 by yoaoki            #+#    #+#             */
-/*   Updated: 2024/04/25 14:08:09 by yoaoki           ###   ########.fr       */
+/*   Updated: 2024/04/26 16:09:30 by yoaoki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,16 +33,6 @@ size_t	term_counter(char const *s, char c)
 	return (count);
 }
 
-size_t	splitstr_len(char const *s, char c)
-{
-	size_t	len;
-
-	len = 0;
-	while (s[len] && s[len] != c)
-		len++;
-	return (len);
-}
-
 void	split_free(char **result, int count)
 {
 	while (count > 0)
@@ -53,37 +43,39 @@ void	split_free(char **result, int count)
 	free(result);
 }
 
-char	**ft_split_dup(char **result, char const *s, char c, size_t size)
+char	*ft_strndup(char const *src, size_t size)
 {
-	size_t	i;
-	size_t	j;
+	char	*result;
 
-	i = 0;
-	while (i < size)
-	{
-		while (*s == c && *s)
-			s++;
-		result[i] = (char *)malloc(sizeof(char) * (splitstr_len(s, c) + 1));
-		if (!result[i])
-		{
-			split_free(result, i);
-			return (0);
-		}
-		j = 0;
-		while (*s != c && *s)
-			result[i][j++] = *s++;
-		result[i][j] = '\0';
-		s += splitstr_len(s, c);
-		i++;
-	}
-	result[i] = 0;
+	result = (char *)malloc(sizeof(char) * (size + 1));
+	if (!result)
+		return (0);
+	ft_strlcpy(result, src, size + 1);
 	return (result);
+}
+
+int	split_dup(char **result, char const *s, char c, size_t i)
+{
+	size_t	split_len;
+
+	split_len = 0;
+	while (s[split_len] && s[split_len] != c)
+		split_len++;
+	result[i] = ft_strndup(s, split_len);
+	if (!result[i])
+	{
+		split_free(result, i);
+		return (0);
+	}
+	i++;
+	return (1);
 }
 
 char	**ft_split(char const *s, char c)
 {
 	char	**result;
 	size_t	size;
+	size_t	i;
 
 	if (!s)
 		return (0);
@@ -91,6 +83,17 @@ char	**ft_split(char const *s, char c)
 	result = (char **)malloc(sizeof(char *) * (size + 1));
 	if (!result)
 		return (0);
-	result = ft_split_dup(result, s, c, size);
+	i = 0;
+	while (i < size)
+	{
+		while (*s && *s == c)
+			s++;
+		if (split_dup(result, s, c, i) != 1)
+			return (0);
+		while (*s && *s != c)
+			s++;
+		i++;
+	}
+	result[i] = 0;
 	return (result);
 }
