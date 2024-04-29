@@ -6,7 +6,7 @@
 /*   By: yoaoki <yoaoki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 20:05:27 by yoaoki            #+#    #+#             */
-/*   Updated: 2024/04/26 14:47:48 by yoaoki           ###   ########.fr       */
+/*   Updated: 2024/04/30 01:25:22 by yoaoki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	is_underflow(long long num, int c)
 
 int	ft_atoi(const char *str)
 {
-	unsigned long long	result;
+	long long	result;
 	int					minus;
 
 	result = 0;
