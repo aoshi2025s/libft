@@ -6,18 +6,18 @@
 /*   By: yoaoki <yoaoki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 20:05:27 by yoaoki            #+#    #+#             */
-/*   Updated: 2024/04/30 01:25:22 by yoaoki           ###   ########.fr       */
+/*   Updated: 2024/05/01 22:13:09 by yoaoki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isspace(char c)
+static int	ft_isspace(char c)
 {
 	return (c == ' ' || (c >= 9 && c <= 13));
 }
 
-int	is_overflow(long long num, int c)
+static int	is_overflow(long long num, int c)
 {
 	if (num > LONG_MAX / 10)
 		return (1);
@@ -26,7 +26,7 @@ int	is_overflow(long long num, int c)
 	return (0);
 }
 
-int	is_underflow(long long num, int c)
+static int	is_underflow(long long num, int c)
 {
 	if (num < LONG_MIN / 10)
 		return (1);
