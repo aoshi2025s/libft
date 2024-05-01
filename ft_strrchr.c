@@ -6,7 +6,7 @@
 /*   By: yoaoki <yoaoki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 16:31:34 by yoaoki            #+#    #+#             */
-/*   Updated: 2024/04/18 23:08:46 by yoaoki           ###   ########.fr       */
+/*   Updated: 2024/05/01 20:13:16 by yoaoki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,26 +15,15 @@
 char	*ft_strrchr(const char *str, int c)
 {
 	char	*curr;
-	char	target;
-	int		len;
 
-	curr = (char *)str;
-	target = (char)c;
-	len = 0;
-	while (*curr)
+	curr = 0;
+	while (*str)
 	{
-		curr++;
-		len++;
+		if (*str == (char)c)
+			curr = (char *)str;
+		str++;
 	}
-	if (target == '\0')
-		return (curr);
-	curr--;
-	while (len)
-	{
-		if (*curr == target)
-			return (curr);
-		curr--;
-		len--;
-	}
-	return (0);
+	if ((char)c == '\0')
+		return ((char *)str);
+	return (curr);
 }
