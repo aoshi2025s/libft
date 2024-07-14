@@ -6,7 +6,7 @@
 /*   By: yoaoki <yoaoki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 20:05:27 by yoaoki            #+#    #+#             */
-/*   Updated: 2024/05/01 22:13:09 by yoaoki           ###   ########.fr       */
+/*   Updated: 2024/07/14 23:02:39 by yoaoki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static int	ft_isspace(char c)
 {
 	return (c == ' ' || (c >= 9 && c <= 13));
 }
-
+/*
 static int	is_overflow(long long num, int c)
 {
 	if (num > LONG_MAX / 10)
@@ -25,7 +25,13 @@ static int	is_overflow(long long num, int c)
 		return (1);
 	return (0);
 }
+*/
 
+static int	is_overflow(long long num, int c)
+{
+	return (num > (LONG_MAX - c) / 10);
+}
+/*
 static int	is_underflow(long long num, int c)
 {
 	if (num < LONG_MIN / 10)
@@ -33,6 +39,12 @@ static int	is_underflow(long long num, int c)
 	if (num == LONG_MIN / 10 && c > -(LONG_MIN % 10))
 		return (1);
 	return (0);
+}
+*/
+
+static int	is_underflow(long long num, int c)
+{
+	return (num < (LONG_MIN + c) / 10);
 }
 
 int	ft_atoi(const char *str)
